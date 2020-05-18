@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pokemon</string>
+    <string name="prevention_msg">Laventure commence maintenant!!!!!</string>
+    <string name="welcome_msg">Bienvenu dans luniver pokemon!!!!!</string>
+</resources>
