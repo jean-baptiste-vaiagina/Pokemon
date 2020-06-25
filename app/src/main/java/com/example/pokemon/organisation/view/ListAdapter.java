@@ -1,23 +1,30 @@
-package com.example.pokemon;
+package com.example.pokemon.organisation.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pokemon.R;
+import com.example.pokemon.organisation.archi.Pokemon;
+
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Pokemon> values;
+    private OnItemClickListener listener;
+
+
+    public interface OnItemClickListener {
+        void onItemClick(Pokemon item);
+    }
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
+
         TextView txtHeader;
         TextView txtFooter;
         View layout;
@@ -40,18 +47,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         notifyItemRemoved(position);
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapter(List<Pokemon> myDataset) {
-        values = myDataset;
+
+    public ListAdapter(List<Pokemon> myDataset, OnItemClickListener onItemClickListener) {
+        this.values = myDataset;
+        this.listener = listener;
     }
 
-    // Create new views (invoked by the layout manager)
+
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
+
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
-        // set the view's size, margins, paddings and layout parameters
+
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -69,6 +77,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         });
 
         holder.txtFooter.setText(currentPokemon.getUrl());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                listener.onItemClick(currentPokemon);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -77,5 +91,4 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         return values.size();
     }
-
 }

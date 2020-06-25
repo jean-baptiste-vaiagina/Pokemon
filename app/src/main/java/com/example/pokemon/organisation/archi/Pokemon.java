@@ -1,4 +1,4 @@
-package com.example.pokemon;
+package com.example.pokemon.organisation.archi;
 
 public class Pokemon {
     private String name;

@@ -1,4 +1,4 @@
-package com.example.pokemon;
+package com.example.pokemon.organisation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.pokemon.R;
+import com.example.pokemon.organisation.view.Main2Activity;
 
 public class MainActivity extends AppCompatActivity {
 

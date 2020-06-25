@@ -1,4 +1,6 @@
-package com.example.pokemon;
+package com.example.pokemon.organisation.archi;
+
+import com.example.pokemon.organisation.archi.Pokemon;
 
 import java.util.List;
 

@@ -2,4 +2,5 @@
     <string name="app_name">Pokemon</string>
     <string name="prevention_msg">Laventure commence maintenant!!!!!</string>
     <string name="welcome_msg">Bienvenu dans luniver pokemon!!!!!</string>
+    <string name="detail_text_description">Screen Detail</string>
 </resources>
